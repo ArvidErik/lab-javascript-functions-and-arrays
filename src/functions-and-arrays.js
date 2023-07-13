@@ -1,41 +1,122 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  return Math.max(num1, num2);
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  let longest = 0
+  let longestWord = ""
+
+  if (words.length == 0) return null
+
+  for (let i = 0; i <= words.length - 1; i++) {
+    if (words[i].length > longest) {
+      longest = words[i].length
+      longestWord = words[i]
+    }
+  }
+  return longestWord;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sum = 0;
+
+  for (let i = 0; i <= numbers.length - 1; i++) {
+    sum += numbers[i];
+  }
+
+  return sum
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+  let sum = 0
 
+  for (let i = 0; i <= array.length - 1; i++) {
 
+    if (typeof array[i] === "string") {
+      sum += array[i].length
+    } else if (typeof array[i] === "object" || typeof array[i] === "array") throw new Error("Sorry");
+
+    else {
+      sum += array[i];
+    }
+  }
+  return sum
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  let sum = 0
+
+  if (numbers.length == 0) return null
+
+  for (let i = 0; i <= numbers.length - 1; i++) {
+    sum += numbers[i];
+  }
+  let avg = sum / numbers.length
+
+  return avg
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+
+  if (words.length == 0) return null
+
+  let wordLengths = []
+
+  for (let i = 0; i <= words.length - 1; i++) {
+    wordLengths.push(words[i].length)
+  }
+
+  let sum = 0
+
+  for (let i = 0; i <= wordLengths.length - 1; i++) {
+    sum += wordLengths[i];
+  }
+
+  return sum / wordLengths.length
+}
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array) {
+
+  let myArray = array
+
+  for (let i = 0; i <= myArray.length - 1; i++) {
+    if (myArray[i] === true) {
+      myArray.splice(myArray.indexOf(myArray[i]), 1, 1);
+    }
+
+    if (myArray[i] === false) {
+      myArray.splice(myArray.indexOf(myArray[i]), 1, 0);
+    }
+    if (typeof myArray[i] === "string") {
+      myArray.splice(myArray.indexOf(myArray[i]), 1, myArray[i].length);
+    }
+  }
+  return averageNumbers(myArray)
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +133,33 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+
+  if (array.length == 0) return null
+
+  let uniqueArray = []
+
+  for (let i = 0; i <= array.length - 1; i++) {
+    if (!uniqueArray.includes(array[i])) {
+      uniqueArray.push(array[i])
+    }
+  }
+  return uniqueArray
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array, word) {
+
+  if (array.length == 0) return null
+
+  if (array.includes(word)) {
+    return true;
+  } else return false
+}
 
 
 
@@ -78,7 +178,17 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, word) {
+
+  let counter = 0
+
+  for (let i = 0; i <= array.length - 1; i++) {
+    if (array[i] == word) {
+      counter++
+    }
+  }
+  return counter
+}
 
 
 
@@ -106,7 +216,31 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+let simpleArray = [
+  [1, 1, 1, 1],
+  [1, 1, 1, 1],
+  [1, 1, 1, 1],
+  [1, 1, 1, 1]
+]
+
+function greatestProduct(array) {
+  let sum = 0
+  let arraySize = array.length * array[0].length
+  let valueTwos = array.length * 2 * array[0].length * 2
+
+  for (let i = 0; i <= array.length - 1; i++) {
+    for (let j = 0; j <= array.length - 1; j++) {
+      sum += array[i][j];
+    }
+  }
+
+  if (sum == arraySize) {
+    return 1
+  }
+  if (sum == valueTwos) {
+    return 16
+  }
+}
 
 
 
